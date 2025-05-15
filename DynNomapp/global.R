@@ -3,7 +3,7 @@ library(shiny)
 library(plotly)
 library(stargazer)
 library(compare)
-
+library(rms)
 
 #######################################################
 #### Before publishing your dynamic nomogram:
@@ -16,7 +16,8 @@ library(compare)
 
 load('data.RData')
 source('functions.R')
-
+t.dist <- datadist(data)
+options(datadist = 't.dist')
 m.summary <- 'raw'
 covariate <- 'slider'
 clevel <- 0.95

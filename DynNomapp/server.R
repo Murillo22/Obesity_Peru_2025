@@ -66,7 +66,7 @@ data2 <- reactive({
                se.pred <- getpred.DN(model, new.d(), set.rms=T)$SEpred
                if (is.na(se.pred)) {
                lwb <- "No standard errors"
-               upb <- "by 'glm'"
+               upb <- "by 'lrm'"
                pred <- mlinkF(mpred)
                d.p <- data.frame(Prediction = zapsmall(pred, digits = 3),
                Lower.bound = lwb, Upper.bound = upb)
@@ -121,7 +121,7 @@ output$plot <- renderPlotly({
                p <- p + geom_errorbarh(xmax = dat2$Upper.bound, xmin = dat2$Lower.bound,
                size = 1.45, height = 0.4, colour = coll[dat2$count])
                } else{
-               message("Confidence interval is not available as there is no standard errors available by 'glm' ")
+               message("Confidence interval is not available as there is no standard errors available by 'lrm' ")
                }
                gp <- ggplotly(p, tooltip = c("text", "label", "label2", "label3"))
                gp$elementId <- NULL
@@ -144,6 +144,6 @@ output$data.pred <- renderPrint({
 })
 
 output$summary <- renderPrint({
-summary(model)
+print(model)
 })
 }

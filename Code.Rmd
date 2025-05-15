@@ -316,7 +316,7 @@ and also created a virtual calculator using **DynNom**
 
 <details>
 <summary style="background-color:#104E8B; color:white; padding:10px; border-radius:6px; cursor:pointer; font-weight:bold;">Hide/Show Code</summary>
-```{r nomogram5.2}
+```{r nomogram5.2, eval=FALSE}
 
 #Loading data
 read_excel('Input File/BASE_OF.xlsx')->data
