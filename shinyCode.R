@@ -33,28 +33,20 @@ data$Obesity <- factor(data$Obesity, levels = c(0, 1), labels = c("No", "Yes"))
 data$PhysActiv <- factor(data$PhysActiv, levels = c(0, 1), labels = c("No", "Yes"))
 data$KnowFeeding <- factor(data$KnowFeeding, levels = c(1,2,3), labels = c("Low", "Intermediate","High"))
 
-lookup <- c(Sex = "SEX", 'Age_groups' = "Age_Group",
-            "Physical_Activity"='PhysActiv',
-            "Knowledge_on_Feeding"='KnowFeeding')
-
-rename(data, all_of(lookup))->data
-
-
-dd <- datadist(data)
+data->dataset
+rm(data)
+dd <- rms::datadist(dataset)
 options(datadist = "dd")
 
 
-model <- lrm(EDI ~ Sex + Age_groups+Obesity+Physical_Activity+Knowledge_on_Feeding,data=data)
+model <- lrm(EDI ~ SEX + Age_Group+
+               Obesity+PhysActiv+KnowFeeding,data=dataset)
+
+DynNom(model, data = dataset, clevel = 0.95, m.summary = c("formatted"),
+       DNtitle = 'Neurodevelopmental Disorders in Children')
+
+DNbuilder(model, data = dataset, clevel = 0.95, m.summary = c("formatted"),
+       DNtitle = 'Neurodevelopmental Disorders in Children')
 
 
-DNbuilder(
-  model, 
-  data = data, 
-  clevel = 0.95,
-  DNtitle = 'Neurodevelopmental Disorders in Children'
-)
-
-# Using shinylive and 
-shinylive::export(appdir = "DynNomapp", destdir = "app_site")
-
-#httpuv::runStaticServer("docs/", port=8008)
+shinyApp('shinyCode.R')
