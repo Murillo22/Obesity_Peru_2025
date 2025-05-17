@@ -1,0 +1,12 @@
+name: NeuroDev_Calculator
+title: NeuroDev_Calculator
+username: omicsperulab
+account: omicsperulab
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 14769897
+bundleId: 10295624
+url: https://omicsperulab.shinyapps.io/NeuroDev_Calculator/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE

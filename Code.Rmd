@@ -461,7 +461,7 @@ radioButtons(inputId="KnowFeeding", label="Knowledge on Feeding",
  shinyApp(ui = ui, server = server) 
 
 # Using shinylive and 
-shinylive::export(appdir = "ShinyApp", destdir = "docs")
+shinylive::export(appdir = "ShinyApp", destdir = "site")
 #httpuv::runStaticServer("docs")
 
 ```
@@ -471,4 +471,4 @@ shinylive::export(appdir = "ShinyApp", destdir = "docs")
 
 To run the interactive shinyPredict calculator, click below:
 
-👉 [Run the DynNom Calculator App]()
+👉 [Run the NeuroDev Calculator App in ShinyApps](https://omicsperulab.shinyapps.io/NeuroDev_Calculator/)
