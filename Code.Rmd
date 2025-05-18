@@ -137,7 +137,7 @@ In this section, we used previously selected variables to test models using rand
 <summary style="background-color:#104E8B; color:white; padding:10px; border-radius:6px; cursor:pointer; font-weight:bold;">Hide/Show Code</summary>
 ```{r test4.1}
 # Number of iterations
-n_reps <- 10
+n_reps <- 1000
 
 # Saving metrics
 accuracy_vect <- numeric(n_reps)
